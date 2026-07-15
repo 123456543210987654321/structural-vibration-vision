@@ -83,17 +83,40 @@ python 10_video_magnification_bgsub.py      # Background subtraction + magnifica
 
 ## Results Overview
 
-### Synthetic Signal Visualization (`01` / `02`)
-- **Time-domain plot**: X/Y sinusoidal displacement curves at 3Hz/5Hz
-- **Frequency-domain plot**: FFT peaks at 3Hz and 5Hz, matching preset frequencies
+### Pipeline
 
-### Optical Flow Tracking (`04` / `07`)
-Running `04_optical_flow_final.py` outputs:
-- **Time-domain comparison**: tracked displacement (solid) vs. ground truth (dashed) overlaid
-- **Frequency-domain comparison**: FFT spectra side-by-side for peak matching
-- **Console metrics**: MSE/RMSE/MAE for each tracked target
+![Pipeline](images/pipeline.png)
+
+### Synthetic Signal Visualization
+
+![Synthetic Signals](images/synthetic_signals.png)
+
+### Optical Flow Tracking on Test Video
+
+**Tracking Visualization** — green lines show feature point trajectories, colored dots show current positions:
+
+![Tracking](images/tracking_visualization.png)
+
+**Time-Domain Comparison** — tracked displacement vs. ground truth (dashed):
+
+![Time Domain](images/time_domain_comparison.png)
+
+**Frequency-Domain Comparison** — FFT spectra of tracked vs. ground truth displacement:
+
+![Frequency](images/frequency_comparison.png)
+
+### Error Metrics
+
+| Metric | X Direction (3Hz, 2.2px) | Y Direction (5Hz, 1.7px) |
+|--------|:------------------------:|:------------------------:|
+| MSE    | 0.0153                   | 0.0093                   |
+| RMSE   | 0.1238                   | 0.0963                   |
+| MAE    | 0.0118                   | 0.0101                   |
+
+![Error Metrics](images/error_metrics.png)
 
 ### Video Outputs
+
 - Optical flow scripts generate annotated `.avi` videos (tracking trajectories & feature points) in `output_videos/`
 - Magnification scripts (`09` / `10`) output amplified videos with visibly enhanced motion
 
